@@ -38,5 +38,5 @@ for i, ax in enumerate(axes.ravel()):
     #ocultamos los ejes para visualizarlo
     ax.axis('off')
 
-plt.subtitle('Componentes de NMF de Rostros')
+plt.suptitle('Componentes de NMF de Rostros')
 plt.show()
