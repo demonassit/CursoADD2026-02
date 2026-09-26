@@ -21,7 +21,7 @@ X = faces.data #es todo el dataset (toda la matriz del dataset)
 
 #vamos a crear nuestro modelo, para identificar 15 rostros
 
-nmf = NMF(n_components=15, random_state=60)
+nmf = NMF(n_components=60, random_state=60)
 
 #tenemos que ajustar el modelo para obtener los pesos 
 
