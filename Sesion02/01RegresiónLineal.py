@@ -85,7 +85,7 @@ fig.suptitle(
 #empezamos con el modelo a partir de una matriz para cada elemento
 for fila, (nombre, modelo) in enumerate([
     ('Lineal', LinearRegression()),
-    ('Ridge', Ridge(alpha=1.0)),
+    ('Ridge', Ridge(alpha=0.8)),
     ('Lasso', Lasso(alpha=0.1))
 ]):
     modelo.fit(X_train, y_train)
