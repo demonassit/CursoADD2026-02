@@ -1,8 +1,11 @@
+from pathlib import Path
+
 import pandas as pd
 from shiny import App, ui, render
 
 # Cargar el dataset fuera de cualquier función (se ejecuta una sola vez)
-df  = pd.read_csv("../hr_ibm.csv")
+# La ruta se resuelve desde la carpeta de este archivo, no desde donde se ejecuta
+df  = pd.read_csv(Path(__file__).parent.parent / "hr_ibm.csv")
 
 
 # Preparar las opciones para los tres selectores
