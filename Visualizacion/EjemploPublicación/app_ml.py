@@ -261,7 +261,7 @@ def server(input, output, session):
         fig.add_bar(y=factores["Factor"], x=factores["Maximo"], orientation="h",
                     name="Maximo posible", marker_color="#E0E0E0")
         fig.add_bar(y=factores["Factor"], x=factores["Puntos"], orientation="h",
-                    name="Aporte actual", marker_color="#1A5F8A",
+                    name="Aporte actual", marker_color="#0C9BF3",
                     text=factores["Puntos"].round(1), textposition="outside")
         fig.update_layout(barmode="overlay", title="Aporte de cada factor al score manual",
                           xaxis_title="Puntos", legend=dict(orientation="h", y=-0.2))
@@ -277,7 +277,7 @@ def server(input, output, session):
     def graf_hist_perm():
         anos = max(0, modelo_perm.predict(pd.DataFrame([fila_perm()], columns=feats_perm))[0])
         fig = px.histogram(df, x="YearsAtCompany", nbins=40,
-                           color_discrete_sequence=["#90A4AE"],
+                           color_discrete_sequence=["#8BEEB4"],
                            title="Antiguedad real de los empleados (historico)",
                            labels={"YearsAtCompany":"Años en la empresa"})
         fig.add_vline(x=anos, line_width=3, line_dash="dash", line_color="#C62828",
@@ -296,7 +296,7 @@ def server(input, output, session):
                       labels={"x":"Años de experiencia", "y":"Permanencia estimada (años)"})
         fig.update_traces(line_color="#1F3864")
         fig.add_scatter(x=[input.p_totalyrs()], y=[actual], mode="markers",
-                        marker=dict(size=14, color="#C62828"), name="Perfil actual")
+                        marker=dict(size=14, color="#860000"), name="Perfil actual")
         fig.update_layout(showlegend=False)
         return grafica(fig)
 
@@ -309,11 +309,11 @@ def server(input, output, session):
             int(input.s_joblvl()), int(input.s_totalyrs()),
             int(input.s_educ()), int(input.s_jobrole())]], columns=feats_sal))[0])
         fig = px.box(d, x="JobLevel", y="MonthlyIncome", points="all",
-                     color_discrete_sequence=["#90A4AE"],
+                     color_discrete_sequence=["#5B05C5"],
                      title=f"Salario real por nivel -- {rol}",
                      labels={"JobLevel":"Nivel de puesto", "MonthlyIncome":"Salario mensual (USD)"})
         fig.add_scatter(x=[int(input.s_joblvl())], y=[sal], mode="markers",
-                        marker=dict(size=16, color="#6A1B9A", symbol="star"),
+                        marker=dict(size=16, color="#C0F416", symbol="star"),
                         name="Estimado")
         fig.update_layout(showlegend=False, xaxis=dict(dtick=1))
         return grafica(fig)
